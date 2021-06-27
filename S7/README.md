@@ -1,8 +1,14 @@
 # Closures
 
-1. Write a closure that takes a function and then check whether the function passed has a docstring with more than 50 characters. 50 is stored as a free variable
-A. Function named <i>docstringcounter</i> is written with the threshold of the docstring to be compared as the optional argument (which is 50 in this case). It contains a closure inside, named <i>check_docstring</i> which takes a function as anrgument, whose doctring length is to be compared with the docstring_threshold. It will then output the length of the docstring of this argument function and also indicating whether this function's docstring is less than/more than/equal to the docstring_threshold.
+<b>1. Write a closure that takes a function and then check whether the function passed has a docstring with more than 50 characters. 50 is stored as a free variable</b></br></br>
+Function named <i>docstringcounter</i> is written with the threshold of the docstring to be compared as the optional argument (which is 50 in this case). It contains a closure inside, named <i>check_docstring</i> which takes a function as anrgument, whose doctring length is to be compared with the docstring_threshold. It will then output the length of the docstring of this argument function and also indicating whether this function's docstring is less than/more than/equal to the docstring_threshold.</br></br>
 
-2. Write a closure that gives you the next Fibonacci number
-3. We wrote a closure that counts how many times a function was called. Write a new one that can keep a track of how many times add/mul/div functions were called, and update a global dictionary variable with the counts
-4. Modify above such that now we can pass in different dictionary variables to update different dictionaries
+<b>2. Write a closure that gives you the next Fibonacci number</b></br></br>
+Function named <i>fibonacciSeries</i> is written, which contains <i>fibonacci_series</i> array as a free variable that stores the sequence of numbers in the fibonacci series. The closure function <i>generate_number</i> inside the <i>fibonacciSeries</i> contains a variable named <i>fibonacci_series</i> that stores the generated next fibonacci number in the sequence, everytime the closure is run. This variable is appended to the <i>fibonacci_series</i> everytime the closure is run.</br></br>
+
+<b>3. We wrote a closure that counts how many times a function was called. Write a new one that can keep a track of how many times add/mul/div functions were called, and update a global dictionary variable with the counts</b></br></br>
+<i>count_operations</i> is defined as a global dictionary that keeps the count of the number of times the add/multiply/divide function is run, as its values. Function named <i>counter</i></br></br> is written that takes a function as an argument. It has variable <i>count</i> as the free variable inside it. We pass the add/multiply/divide function as the argument to this function. Function <i>operations</i> exists as the closure inside the <i>counter</i> function and this takes the arguments to be passed to the add/multiple/divide function as the arguments. This closure returns the value produced by the add/multiply/divide function operations and appends the count of the number of times these operations have been run to the <i>count_operations</i> dictionary.
+
+<b>4. Modify above such that now we can pass in different dictionary variables to update different dictionaries</b></br></br>
+
+This is the same as <b>3</i> but here, in addition to the function that is passed as an argument to the <i>counter</i> function, a dictionary is also passed as an argument, in which the count of the number of times the add/multiply/divide function operations is run is recorded. The <i>operations</i> closure function records this count in the dictionary provided as an argument to the <i>counter</i> function. 
