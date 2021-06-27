@@ -1,4 +1,5 @@
 # Closures
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudo-rickroll/EPAI-3/blob/main/S7/main.ipynb)
 
 <b>1. Write a closure that takes a function and then check whether the function passed has a docstring with more than 50 characters. 50 is stored as a free variable</b></br></br>
 Function named <i>docstringcounter</i> is written with the threshold of the docstring to be compared as the optional argument (which is 50 in this case). It contains a closure inside, named <i>check_docstring</i> which takes a function as anrgument, whose doctring length is to be compared with the docstring_threshold. It will then output the length of the docstring of this argument function and also indicating whether this function's docstring is less than/more than/equal to the docstring_threshold.</br></br>
