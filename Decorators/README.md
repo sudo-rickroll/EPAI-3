@@ -6,14 +6,14 @@ A Decorator function is a function enclosing an inner function that runs the mai
 
 Example: 
 ```
-def decorator (fn):
+def decorator(fn):
     def inner (*args, **kwargs):
         """main_function and additional functions are run here"""
         pass
     return inner
 
 @decorator
-def main_function (*args, **kwargs):
+def main_function(*args, **kwargs):
     pass
 
 ```
@@ -46,3 +46,6 @@ This Decorator Factory function runs the function inside it only if the password
 ### timed(reps)
 
 This decorator function takes an input to it that specifies the amount of times a function is run. It then runs the actual function that many number of times and calculates the overall time taken over all the iterations and also the average time taken for each iteration of the function to run.
+
+
+This directory also contains <b>test_decorators.py</b> module to test the main module's functionalities.
