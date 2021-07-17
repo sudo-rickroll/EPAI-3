@@ -1,6 +1,3 @@
-Name : `Rangasai K R`</br>
-Email ID : `sai.ranga3@gmail.com`
-
 # Decorators
 
 This repository contains the functions illustrating the use of Decorators and Decorator Factories.
