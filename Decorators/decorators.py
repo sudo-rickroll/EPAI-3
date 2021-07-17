@@ -28,7 +28,7 @@ def logger(fn: function) -> function:
 	return inner
 
 
-def decorator_factory(access:str) -> function:
+def decorator_factory(access: str) -> function:
 	"""This Decorator factory function provides access to variables based upon the access level type passed as input to the decorator factory function."""
 	def outer(fn: function) -> function: 
 		var1, var2, var3, var4 = 0, 0, 0, 0
