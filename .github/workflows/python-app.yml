@@ -39,3 +39,7 @@ jobs:
       working-directory: Sequences
       run: |
         pytest
+    - name: Test with pytest
+      working-directory: Decorators
+      run: |
+        pytest
