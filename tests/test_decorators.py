@@ -1,5 +1,5 @@
-from ..Decorators.decorators import *
-from ..Decorators import decorators
+from Decorators.decorators import *
+from Decorators import decorators
 from datetime import datetime
 import pytest
 from io import StringIO 
