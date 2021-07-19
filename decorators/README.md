@@ -48,4 +48,4 @@ This Decorator Factory function runs the function inside it only if the password
 This decorator function takes an input to it that specifies the amount of times a function is run. It then runs the actual function that many number of times and calculates the overall time taken over all the iterations and also the average time taken for each iteration of the function to run.
 
 </br></br>
-The test file for the main module in this directory is named <b>test_decorators.py</b> and is placed inside <i>/tests/</i>. It is created to test the main module's functionalities.
+The test file for the main module in this directory is named <b>test_decorators.py</b> and is placed inside <i>/tests</i> folder. It is created to test the main module's functionalities.
