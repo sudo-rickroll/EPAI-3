@@ -8,4 +8,4 @@ This directory consists of two main files - <b>sequences.py</b> and <b>sequences
 </ul>
 
 </br>
-It also contains two files for testing - <b>test_sequences.py</b> and <b>test_sequences_extended.py</b> which are the test files run with pytest inside github actions.
+The two files for testing  - <b>test_sequences.py</b> and <b>test_sequences_extended.py</b> which are the test files run with pytest inside github actions, are placed in the <i>/tests</i> folder.
