@@ -4,4 +4,4 @@ This is a rundown of some of the key python-related components that could be qui
 
 Github Actions has also been setup for Continuous Integration of some of the directories and its YAML file can be accessed inside <i>.github/workflows</i> folder. 
 
-The test files for all the modules are placed inside the <i>tests</i> folder.
+The test files for all the modules are placed inside the <i>/tests</i> folder.
