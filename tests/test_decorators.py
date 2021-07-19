@@ -1,5 +1,5 @@
-from Decorators.decorators import *
-from Decorators import decorators
+from decorators import *
+from decorators import decorators
 from datetime import datetime
 import pytest
 from io import StringIO 
@@ -17,6 +17,7 @@ README_CONTENT_CHECK_FOR = [
     "timed"
 ]
 
+path = "/decorators"
 def test_readme_exists():
     assert os.path.isfile("README.md"), "README.md file missing!"
 
