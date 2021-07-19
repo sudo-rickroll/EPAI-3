@@ -1,0 +1,1 @@
+from namedtuples.namedtuples import fake_profiles, calculate_stats_namedtuple, calculate_stats_dict
