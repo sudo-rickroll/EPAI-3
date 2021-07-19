@@ -1,6 +1,6 @@
 # Python Scratchpad (Python Cheat ~~Sheet~~ Repo)
 
-![GitHub Actions](https://github.com/sudo-rickroll/Python-Scratchpad/actions/workflows/python-app.yml/badge.svg)
+![GitHub Actions](https://github.com/sudo-rickroll/Python-Scratchpad/actions/workflows/revision-modules.yml/badge.svg)
 
 This is a rundown of some of the key python-related components that could be quickly referred to, whenever needed. It contains modules that are built using these python concepts and helps in quick revision of some of the concepts. 
 
