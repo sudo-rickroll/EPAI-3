@@ -1,4 +1,4 @@
-from sequences_extended import Polygon_Sequence
+from sequences import Polygon_Sequence
 from typing import Iterator, Union
 
 class Polygon_Sequence_Iterable():
