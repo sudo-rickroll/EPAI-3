@@ -1,5 +1,5 @@
 from sequences import Polygon
-from typing import Union
+from typing import Iterable, Union
 from collections.abc import Sequence
 from sequences import Polygon
 
@@ -14,6 +14,7 @@ class Polygon_Sequence:
     def __init__(self, num_vertices_largest: int, circumradius: Union[int, float]) -> None:
         self.num_vertices_largest = num_vertices_largest
         self.circumradius = circumradius
+        self._index = 0
 
     @property
     def num_vertices_largest(self) -> int:
@@ -51,6 +52,17 @@ class Polygon_Sequence:
 
     def __len__(self) -> int:
         return self.num_vertices_largest - 2
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> Union[Polygon, StopIteration]:
+        if self._index == len(self.polygons):
+            self._index = 0
+            raise StopIteration
+        else:
+            self._index += 1
+            return self.polygons[self._index - 1]
 
     def __getitem__(self, index: Union[int, slice]) -> Polygon:
         return self.polygons[index]
