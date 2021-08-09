@@ -32,9 +32,3 @@ class Polygon_Sequence_Iterable():
         return Polygon_Sequence(self.num_vertices_largest, self.circumradius)      
 
 
-a = Polygon_Sequence_Iterable(5,2)
-
-for i in a:
-    pass
-
-print(next(iter(a)) is not None)
