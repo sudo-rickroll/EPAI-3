@@ -1,4 +1,5 @@
 import math
+from iterators import Polygon, Polygons
 
 class Polygon:
     def __init__(self, n, R):
