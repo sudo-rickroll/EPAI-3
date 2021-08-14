@@ -1,10 +1,10 @@
 from datetime import date
-import builtins
 from dateutil import parser
 from typing import Generator
 from collections import namedtuple, Counter
 from contextlib import contextmanager
 from iterators import date_parser
+import builtins
 
 @contextmanager
 def csv_iter(entity_name, file_loc: str, *args) -> Generator:
