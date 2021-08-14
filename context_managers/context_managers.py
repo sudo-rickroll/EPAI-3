@@ -18,3 +18,8 @@ def csv_iter(entity_name, file_loc: str, *args) -> Generator:
 
     finally:
         del locals()[entity_name]
+
+a = csv_iter("Employment", "resources/employment.csv", "str", "str", "str", "str")
+for row in a:
+    print(row)
+    break
