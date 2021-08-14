@@ -1,9 +1,8 @@
-from datetime import date
-from dateutil import parser
 from typing import Generator
-from collections import namedtuple, Counter
+from collections import namedtuple
 from iterators import date_parser
 import builtins
+import csv
 
 
 def csv_iter(entity_name, file_loc: str, *args) -> Generator:    
