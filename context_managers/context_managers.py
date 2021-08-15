@@ -1,3 +1,4 @@
+from datetime import date
 from typing import Generator
 from collections import namedtuple
 from iterators import date_parser
