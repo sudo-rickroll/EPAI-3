@@ -1,6 +1,6 @@
 from datetime import date
 from typing import Generator
-from collections import namedtuple
+from collections import namedtuple, Counter
 from iterators import date_parser
 import builtins
 import csv
