@@ -4,28 +4,19 @@ from iterators import date_parser
 import builtins
 import csv
 
-# Decorator factory to combine namedtuples across multiple iterators (currently set to combine namedtuples across 4 iterators but can be made dynamic with a small change)
 def combine_namedtuples(combined_namedtuple_name, *args, **kwargs):
     file_locs = args
     entities = list(kwargs.keys())
     data_types = list(kwargs.values())
-    def decorator(fn):
-        namedtuple_iters, namedtuple_fields = [], []
-        from functools import wraps
-        @wraps(fn)
-        def inner(*args, **kwargs):
-            nonlocal namedtuple_fields
-            for file_loc, entity, data_type in zip(file_locs, entities, data_types):
-                namedtuple_iters.append(fn(file_loc, entity, namedtuple_fields, *data_type))
-            for i, j, k, l in zip(*[namedtuple_iters[r] for r in range(0, len(namedtuple_iters))]):
-                if not hasattr(locals(), combined_namedtuple_name):
-                    locals()[combined_namedtuple_name] = namedtuple(combined_namedtuple_name, namedtuple_fields)
-                yield locals()[combined_namedtuple_name](*list(dict.fromkeys(i + j + k + l)))
-        return inner
-    return decorator
+    namedtuple_iters, namedtuple_fields = [], []
+    for file_loc, entity, data_type in zip(file_locs, entities, data_types):
+        namedtuple_iters.append(csv_iter(file_loc, entity, namedtuple_fields, *data_type))
+    for i, j, k, l in zip(*[namedtuple_iters[r] for r in range(0, len(namedtuple_iters))]):
+        if not hasattr(locals(), combined_namedtuple_name):
+            locals()[combined_namedtuple_name] = namedtuple(combined_namedtuple_name, namedtuple_fields)
+            yield locals()[combined_namedtuple_name](*list(dict.fromkeys(i + j + k + l)))
 
-# Function to create iterator containing namedtuple records from a csv
-# Example usage of the above decorator factory : @combine_namedtuples1("PID", r"resources/employment.csv", r"resources/personal_info.csv", r"resources/update_status.csv", r"resources/vehicles.csv", Employment = ["str", "str", "str", "str"], Personal_Info = ["str", "str", "str", "str", "str"], Update_Status = ["str", "date_parser", "date_parser"], Vehicles = ["str", "str", "str", "int"])
+
 def csv_iter(file_loc, entity_name, namedtuple_fields=None, *args) -> Generator:
     with open(file_loc, encoding='utf8', errors='ignore') as f:
         rows = csv.reader(f, delimiter=',', quotechar='"')
@@ -35,3 +26,14 @@ def csv_iter(file_loc, entity_name, namedtuple_fields=None, *args) -> Generator:
         locals()[entity_name] = namedtuple(entity_name, fields)
         for row in rows:
             yield locals()[entity_name](*[getattr(builtins, data_type)(value) if hasattr(builtins, data_type) else globals()[data_type](value) for data_type, value in zip(args, row)])
+
+def stale_records(sequence, column):
+    yield from filter(lambda x : getattr(x, column) > date(2017, 3, 1), sequence)
+
+def highest_count(iterator_obj, *args):
+    counter = Counter([tuple(getattr(item, arg) for arg in args) for item in iterator_obj])
+    counter_male = sorted([(k[1],v) for k, v in counter.items() if k[0].lower() == 'male'], key = lambda x : x[1], reverse=True)
+    counter_male = [i for i in counter_male if i[1] == counter_male[0][1]]
+    counter_female = sorted([(k[1],v) for k, v in counter.items() if k[0].lower() == 'female'], key = lambda x : x[1], reverse=True)
+    counter_female = [i for i in counter_female if i[1] == counter_female[0][1]]
+    return counter_male, counter_female
