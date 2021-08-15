@@ -25,6 +25,7 @@ def combine_namedtuples(combined_namedtuple_name, *args, **kwargs):
     return decorator
 
 # Function to create iterator containing namedtuple records from a csv
+# Example usage of the above decorator factory : @combine_namedtuples1("PID", r"resources/employment.csv", r"resources/personal_info.csv", r"resources/update_status.csv", r"resources/vehicles.csv", Employment = ["str", "str", "str", "str"], Personal_Info = ["str", "str", "str", "str", "str"], Update_Status = ["str", "date_parser", "date_parser"], Vehicles = ["str", "str", "str", "int"])
 def csv_iter(file_loc, entity_name, namedtuple_fields=None, *args) -> Generator:
     with open(file_loc, encoding='utf8', errors='ignore') as f:
         rows = csv.reader(f, delimiter=',', quotechar='"')
