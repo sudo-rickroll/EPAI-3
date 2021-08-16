@@ -1,1 +1,3 @@
 # Context Managers
+
+This module contains functions to read CSV and create iterator of namedtuples, combine the namedtuples, obtain stale records in the iterator of namedtuples (in this case, obtain records whose last_updated column value is greater than 03-01-2017 (MM-DD-YYYY)) and obtain the entity with highest count based upon the gender values in the namedtuples inside the iterator (in this case, obtain the vehicle names that are most owned by males and females).
